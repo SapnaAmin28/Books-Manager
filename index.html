@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Books Manager — Vanilla UI</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <h1 class="title">Books Manager</h1>
+          <p class="subtitle">A massive responsive UI for managing books — pure HTML/CSS/JS</p>
+        </div>
+
+        <div class="actions">
+          <div class="search-wrap">
+            <input id="search" class="input search" placeholder="Search title or author..." />
+            <button id="clearSearch" class="icon-btn" title="Clear search">✕</button>
+          </div>
+          <button id="addBtn" class="btn primary">
+            ➕ <span class="btn-label">Add Book</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="control-group">
+          <label>Sort</label>
+          <select id="sortSelect" class="select">
+            <option value="id-desc">Newest</option>
+            <option value="id-asc">Oldest</option>
+            <option value="title-asc">Title A→Z</option>
+            <option value="title-desc">Title Z→A</option>
+            <option value="author-asc">Author A→Z</option>
+            <option value="author-desc">Author Z→A</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label>Per page</label>
+          <select id="perPage" class="select">
+            <option>6</option>
+            <option selected>8</option>
+            <option>12</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <button id="resetBtn" class="btn">Reset</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="status" class="status">Loading books…</section>
+
+      <section id="grid" class="grid"></section>
+
+      <nav class="pagination" id="pagination"></nav>
+    </main>
+
+    <!-- Modal: Add/Edit -->
+    <div class="overlay hidden" id="formOverlay" aria-hidden="true">
+      <div class="modal scale-in" role="dialog" aria-modal="true">
+        <header class="modal-header">
+          <h2 id="modalTitle">Add Book</h2>
+          <button id="closeModal" class="icon-btn">✕</button>
+        </header>
+
+        <form id="bookForm" class="modal-body">
+          <label>Title
+            <input id="titleInput" class="input" required minlength="2" />
+            <small class="err" id="errTitle"></small>
+          </label>
+
+          <label>Author
+            <input id="authorInput" class="input" required minlength="3" />
+            <small class="err" id="errAuthor"></small>
+          </label>
+
+          <div class="modal-actions">
+            <button type="button" id="cancelForm" class="btn">Cancel</button>
+            <button type="submit" class="btn primary" id="saveBtn">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal: Delete confirm -->
+    <div class="overlay hidden" id="deleteOverlay" aria-hidden="true">
+      <div class="modal small scale-in">
+        <header class="modal-header">
+          <h3>Delete book</h3>
+        </header>
+        <div class="modal-body">
+          <p id="deleteMsg">Are you sure you want to delete this book?</p>
+          <div class="modal-actions">
+            <button id="cancelDelete" class="btn">Cancel</button>
+            <button id="confirmDelete" class="btn danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <footer class="footer">Built with ❤️ — vanilla HTML / CSS / JS</footer>
+  </div>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
