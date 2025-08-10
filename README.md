@@ -16,4 +16,4 @@ A responsive, fully client-side web application for managing a list of books. Bu
 - **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6+)
 - **Styling:** Modern CSS with gradients, glassmorphism, responsive grid layout, micro-animations
 
-## 📂 Project Structure
+
