@@ -23,4 +23,4 @@ Frontend: HTML5, CSS3, Vanilla JavaScript (ES6+)
 
 Styling: Modern CSS with gradients, glassmorphism, responsive grid layout, micro-animations
 
-Data: Connects to a REST API at http://localhost:3000/books (or uses demo data when API is unavailable)
+
